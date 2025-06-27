@@ -469,6 +469,102 @@
     </style>
 </head>
 <body>
+    <script>
+// Create the announcement element
+const announcement = document.createElement('div');
+announcement.style.position = 'fixed';
+announcement.style.bottom = '0';
+announcement.style.left = '0';
+announcement.style.right = '0';
+announcement.style.backgroundColor = '#2c3e50';
+announcement.style.color = 'white';
+announcement.style.padding = '15px';
+announcement.style.textAlign = 'center';
+announcement.style.zIndex = '9999';
+announcement.style.boxShadow = '0 -2px 10px rgba(0,0,0,0.2)';
+announcement.style.display = 'flex';
+announcement.style.justifyContent = 'center';
+announcement.style.alignItems = 'center';
+announcement.style.gap = '10px';
+announcement.style.flexWrap = 'wrap';
+
+// Add the announcement content
+announcement.innerHTML = `
+    <div style="font-weight: bold; margin-right: 10px;">🚧 New Website Coming Soon!</div>
+    <div style="font-size: 0.9em;">
+        (Development temporarily delayed as I currently don't have access to my laptop)
+    </div>
+    <button id="closeAnnouncement" style="
+        background: #e74c3c;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-left: 10px;
+    ">×</button>
+`;
+
+// Add to the body
+document.body.appendChild(announcement);
+document.body.style.marginBottom = '50px'; // Add margin to prevent content hiding
+
+// Close button functionality
+document.getElementById('closeAnnouncement').addEventListener('click', function() {
+    announcement.style.display = 'none';
+    document.body.style.marginBottom = '0';
+});
+
+// Optional: Make it persistent across page navigation
+window.addEventListener('beforeunload', function() {
+    localStorage.setItem('announcementClosed', 'false');
+});
+
+// Check if previously closed
+if (localStorage.getItem('announcementClosed') === 'true') {
+    announcement.style.display = 'none';
+    document.body.style.marginBottom = '0';
+} else {
+    // Show popup notification as well
+    const popup = document.createElement('div');
+    popup.style.position = 'fixed';
+    popup.style.top = '50%';
+    popup.style.left = '50%';
+    popup.style.transform = 'translate(-50%, -50%)';
+    popup.style.backgroundColor = 'white';
+    popup.style.padding = '20px';
+    popup.style.borderRadius = '8px';
+    popup.style.boxShadow = '0 4px 20px rgba(0,0,0,0.2)';
+    popup.style.zIndex = '10000';
+    popup.style.maxWidth = '400px';
+    popup.style.textAlign = 'center';
+    
+    popup.innerHTML = `
+        <h3 style="color: #2c3e50; margin-bottom: 15px;">Important Notice</h3>
+        <p style="margin-bottom: 15px; color: #333;">
+            Our new website is under development but progress is currently delayed 
+            as I don't have access to my primary development laptop.
+        </p>
+        <p style="margin-bottom: 15px; color: #333;">
+            Please check back later or contact me for updates.
+        </p>
+        <button id="closePopup" style="
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        ">I Understand</button>
+    `;
+    
+    document.body.appendChild(popup);
+    
+    document.getElementById('closePopup').addEventListener('click', function() {
+        popup.style.display = 'none';
+    });
+}
+</script>
     <!-- Navigation -->
     <header>
         <nav>
