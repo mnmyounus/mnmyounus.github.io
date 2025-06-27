@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Younus Portfolio</title>
+    <title>MNM Younus Portfolio</title>
     <style>
         /* Reset and Base Styles */
         * {
@@ -207,6 +207,13 @@
 
         .about-text p {
             margin-bottom: 1.5rem;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .about-text strong {
+            color: #2c3e50;
         }
 
         /* Skills Section */
@@ -245,21 +252,23 @@
             border: none;
         }
 
+        .embedded-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border-top: 1px solid #e0e0e0;
+            flex-wrap: wrap;
+        }
+
         .embedded-fallback {
-            padding: 2rem;
+            padding: 1.5rem;
             text-align: center;
             display: none;
-        }
-
-        .embedded-fallback p {
-            margin-bottom: 1.5rem;
-        }
-
-        .social-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
+            background-color: #fff8f8;
+            border-top: 1px solid #ffdddd;
+            color: #e74c3c;
         }
 
         /* Contact Section */
@@ -316,12 +325,80 @@
             color: #bdc3c7;
         }
 
+        #form-status {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            border-radius: 5px;
+            display: none;
+            text-align: center;
+        }
+
         /* Footer */
         footer {
             background-color: #1a252f;
             color: #bdc3c7;
             text-align: center;
             padding: 2rem;
+        }
+
+        /* Announcement Popup */
+        .announcement-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .announcement-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .announcement-popup {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            transform: scale(0.8);
+            transition: transform 0.3s;
+        }
+
+        .announcement-overlay.active .announcement-popup {
+            transform: scale(1);
+        }
+
+        .announcement-popup h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .announcement-popup p {
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .close-popup {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #7f8c8d;
         }
 
         /* Responsive Design */
@@ -361,6 +438,11 @@
 
             .hero-content h1 {
                 font-size: 2.5rem;
+            }
+
+            .embedded-actions {
+                flex-direction: column;
+                align-items: center;
             }
         }
 
@@ -419,26 +501,17 @@
         <h2 class="section-title">About Me</h2>
         <div class="about-content">
             <div class="about-img">
-                <img src="https://via.placeholder.com/500x500" alt="Profile Image">
+                <img src="me.jpg" alt="Profile Image">
             </div>
             <div class="about-text">
                 <h3>Full Professionalism</h3>
-                <p><p style="font-size: 18px; line-height: 1.8; font-family: 'Segoe UI', sans-serif; color: #333;">
-  <strong>@mnmyounus</strong> 🚀 is a visionary entrepreneur and future <strong>Ph.D. Neurologist 🧠</strong> with a bold ambition to become the <strong>richest individual in the universe 💸</strong> and serve as <strong>Secretary-General of the United Nations 🌍</strong> and <strong>European Union 🇪🇺</strong>. With expertise in <strong>IT 💻</strong>, <strong>software development 🧑‍💻</strong>, <strong>military strategy 🛡️</strong>, and <strong>global governance 🏛️</strong>, he is committed to transforming the world through <strong>innovation 💡, leadership 🎯, and unified systems 🔗</strong>.
-</p>
+                <p><strong>@mnmyounus</strong> 🚀 is a visionary entrepreneur and future <strong>Ph.D. Neurologist 🧠</strong> with a bold ambition to become the <strong>richest individual in the universe 💸</strong> and serve as <strong>Secretary-General of the United Nations 🌍</strong> and <strong>European Union 🇪🇺</strong>. With expertise in <strong>IT 💻</strong>, <strong>software development 🧑‍💻</strong>, <strong>military strategy 🛡️</strong>, and <strong>global governance 🏛️</strong>, he is committed to transforming the world through <strong>innovation 💡, leadership 🎯, and unified systems 🔗</strong>.</p>
 
-<p style="font-size: 18px; line-height: 1.8; font-family: 'Segoe UI', sans-serif; color: #333;">
-  As founder of the <strong>Y Conglomerate 🏢</strong>, he is building a fully integrated global ecosystem where <strong>all digital, physical, and financial products and services 🌐</strong> are created, managed, and distributed under the Y brand. This includes platforms like <strong>YCar 🚗, YMall 🛍️, YCafe ☕, YBank 🏦</strong>, and <strong>YNet 🌐</strong>, a global internet service. <strong>YShops 🏬</strong> and <strong>YHubs 🛰️</strong> will operate in every major city worldwide to ensure seamless access to Y’s offerings.
-</p>
+                <p>As founder of the <strong>Y Conglomerate 🏢</strong>, he is building a fully integrated global ecosystem where <strong>all digital, physical, and financial products and services 🌐</strong> are created, managed, and distributed under the Y brand. This includes platforms like <strong>YCar 🚗, YMall 🛍️, YCafe ☕, YBank 🏦</strong>, and <strong>YNet 🌐</strong>, a global internet service. <strong>YShops 🏬</strong> and <strong>YHubs 🛰️</strong> will operate in every major city worldwide to ensure seamless access to Y's offerings.</p>
 
-<p style="font-size: 18px; line-height: 1.8; font-family: 'Segoe UI', sans-serif; color: #333;">
-  In a groundbreaking move, Y will <strong>acquire and rebrand tech giants 🔄</strong> such as <strong>Google 🔍, Meta 📱, Apple 🍏, and X (formerly Twitter) 🐦</strong>, uniting them under the <strong>Y identity 🧩</strong> to form the most powerful digital ecosystem ever built.
-</p>
+                <p>In a groundbreaking move, Y will <strong>acquire and rebrand tech giants 🔄</strong> such as <strong>Google 🔍, Meta 📱, Apple 🍏, and X (formerly Twitter) 🐦</strong>, uniting them under the <strong>Y identity 🧩</strong> to form the most powerful digital ecosystem ever built.</p>
 
-<p style="font-size: 18px; line-height: 1.8; font-family: 'Segoe UI', sans-serif; color: #333;">
-  Y is also forging strategic integrations with global institutions including the <strong>United Nations 🇺🇳, European Union 🇪🇺, Interpol 🕵️‍♂️, NSA 🛰️</strong>, and other intergovernmental agencies to drive <strong>collaboration 🤝, digital sovereignty 🛡️, security 🔐, and innovation 🧬</strong> worldwide. With this foundation, Y is set to become the most influential force in <strong>technology 💾, commerce 🏦, governance ⚖️, and global infrastructure 🏗️</strong> — redefining the way the world connects, communicates, and thrives 🌎.
-</p>
-            </p>
+                <p>Y is also forging strategic integrations with global institutions including the <strong>United Nations 🇺🇳, European Union 🇪🇺, Interpol 🕵️‍♂️, NSA 🛰️</strong>, and other intergovernmental agencies to drive <strong>collaboration 🤝, digital sovereignty 🛡️, security 🔐, and innovation 🧬</strong> worldwide. With this foundation, Y is set to become the most influential force in <strong>technology 💾, commerce 🏦, governance ⚖️, and global infrastructure 🏗️</strong> — redefining the way the world connects, communicates, and thrives 🌎.</p>
                 <a href="#contact" class="btn">Contact Me</a>
             </div>
         </div>
@@ -456,14 +529,11 @@
                 <iframe src="https://mnmyounus.github.io/skills" class="embedded-frame" 
                         title="My Professional Skills" 
                         onerror="document.getElementById('skills-fallback').style.display='block'"></iframe>
+                <div class="embedded-actions">
+                    <a href="https://mnmyounus.github.io/skills-direct" class="btn btn-outline" target="_blank">View Skills Directly</a>
+                     </div>
                 <div id="skills-fallback" class="embedded-fallback">
-                    <p>Unable to load embedded skills profile.</p>
-                    <p>You can view my skills directly on these platforms:</p>
-                    <div class="social-buttons">
-                        <a href="https://linkedin.com/in/yourprofile/skills" class="btn btn-outline">View on LinkedIn</a>
-                        <a href="https://credly.com/users/yourprofile" class="btn btn-outline">View Certifications</a>
-                        <a href="https://github.com/yourusername" class="btn btn-outline">View GitHub</a>
-                    </div>
+                    <p>⚠️ If embedded content failed to load or any error. Please use the direct link above.</p>
                 </div>
             </div>
         </div>
@@ -478,7 +548,7 @@
                 <div class="contact-details">
                     <div class="contact-item">
                         <div class="contact-icon">📍</div>
-                        <p>123 Developer Street, Tech City, TC 10001</p>
+                        <p>Global Headquarters, Y Tower, International Zone</p>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">📧</div>
@@ -486,7 +556,7 @@
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">📞</div>
-                        <p>+1 (555) 123-4567</p>
+                        <p>+1 (555) Y-OUNUS</p>
                     </div>
                 </div>
                 
@@ -498,23 +568,23 @@
                     <iframe src="https://mnmyounus.github.io/ysocial" class="embedded-frame" 
                             title="My Social Profiles" 
                             onerror="document.getElementById('social-fallback').style.display='block'"></iframe>
-                    <div id="social-fallback" class="embedded-fallback">
-                        <p>Unable to load social profiles.</p>
-                        <p>Connect with me directly on these platforms:</p>
-                        <div class="social-buttons">
-                            <a href="https://linkedin.com/in/yourprofile" class="btn btn-outline">LinkedIn</a>
-                            <a href="https://github.com/yourusername" class="btn btn-outline">GitHub</a>
-                            <a href="https://twitter.com/yourhandle" class="btn btn-outline">Twitter</a>
+                    <div class="embedded-actions">
+                        <a href="https://linkedin.com/in/mnmyounus" class="btn btn-outline" target="_blank">LinkedIn</a>
                         </div>
+                    <div id="social-fallback" class="embedded-fallback">
+                        <p>⚠️ If embedded content failed to load or error. Please use the direct link above.</p>
                     </div>
                 </div>
             </div>
-            <form class="contact-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <input type="text" placeholder="Subject">
-                <textarea placeholder="Your Message" required></textarea>
+            <form class="contact-form" id="contactForm">
+                <input type="hidden" name="_subject" value="New contact from Younus Portfolio">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="text" name="subject" placeholder="Subject">
+                <textarea name="message" placeholder="Your Message" required></textarea>
                 <button type="submit" class="btn">Send Message</button>
+                <div id="form-status"></div>
             </form>
         </div>
     </section>
@@ -524,106 +594,191 @@
         <p>&copy; 2025 Y. All rights reserved.</p>
     </footer>
 
+    <!-- Announcement Popup -->
+    <div class="announcement-overlay" id="announcementPopup">
+        <div class="announcement-popup">
+            <button class="close-popup" id="closePopup">&times;</button>
+            <h3>Exciting News!</h3>
+            <p>Our brand new website is launching soon with enhanced features and a complete redesign.</p>
+            <p>Stay tuned for the official launch date!</p>
+            <a href="#contact" class="btn" id="notifyMe">Notify Me</a>
+        </div>
+    </div>
+
     <script>
-        // Mobile Navigation
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
+    // Mobile Navigation
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
 
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
         });
+    });
 
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            window.scrollTo({
+                top: targetElement.offsetTop - 70,
+                behavior: 'smooth'
             });
+            
+            // Update active link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+            });
+            this.classList.add('active');
         });
+    });
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                window.scrollTo({
-                    top: targetElement.offsetTop - 70,
-                    behavior: 'smooth'
-                });
-                
-                // Update active link
+    // Highlight active section in navigation
+    window.addEventListener('scroll', () => {
+        const scrollPosition = window.scrollY;
+        
+        document.querySelectorAll('section').forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute('id');
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
                 document.querySelectorAll('.nav-links a').forEach(link => {
                     link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${sectionId}`) {
+                        link.classList.add('active');
+                    }
                 });
-                this.classList.add('active');
-            });
+            }
         });
+    });
 
-        // Highlight active section in navigation
-        window.addEventListener('scroll', () => {
-            const scrollPosition = window.scrollY;
-            
-            document.querySelectorAll('section').forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                const sectionHeight = section.offsetHeight;
-                const sectionId = section.getAttribute('id');
-                
-                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                    document.querySelectorAll('.nav-links a').forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${sectionId}`) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
-            });
+    // Animate sections when scrolling
+    const sections = document.querySelectorAll('section');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
         });
+    }, {
+        threshold: 0.1
+    });
 
-        // Animate sections when scrolling
-        const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        observer.observe(section);
+    });
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                }
-            });
-        }, {
-            threshold: 0.1
+    // Check if iframes loaded successfully
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check skills iframe after a delay
+        setTimeout(() => {
+            const skillsFrame = document.querySelector('#skills iframe');
+            if (skillsFrame && skillsFrame.contentWindow.document.body.innerHTML === '') {
+                document.getElementById('skills-fallback').style.display = 'block';
+            }
+        }, 2000);
+
+        // Check social iframe after a delay
+        setTimeout(() => {
+            const socialFrame = document.querySelector('#contact iframe');
+            if (socialFrame && socialFrame.contentWindow.document.body.innerHTML === '') {
+                document.getElementById('social-fallback').style.display = 'block';
+            }
+        }, 2000);
+
+        // Show announcement popup after 3 seconds
+        setTimeout(() => {
+            document.getElementById('announcementPopup').classList.add('active');
+        }, 3000);
+    });
+
+    // Close popup functionality
+    document.getElementById('closePopup').addEventListener('click', function() {
+        document.getElementById('announcementPopup').classList.remove('active');
+    });
+
+    // Notify me button functionality
+    document.getElementById('notifyMe').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('announcementPopup').classList.remove('active');
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        window.scrollTo({
+            top: targetElement.offsetTop - 70,
+            behavior: 'smooth'
         });
+    });
 
-        sections.forEach(section => {
-            observer.observe(section);
-        });
+    // AJAX Form Submission with FormSubmit.co
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const form = e.target;
+        const formData = new FormData(form);
+        const statusElement = document.getElementById('form-status');
+        const submitButton = form.querySelector('button[type="submit"]');
+        
+        // Show loading state
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+        statusElement.style.display = 'block';
+        statusElement.textContent = 'Sending your message...';
+        statusElement.style.color = '#3498db';
+        statusElement.style.backgroundColor = '#ebf5fb';
 
-        // Form submission
-        const contactForm = document.querySelector('.contact-form');
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your message! I will get back to you soon.');
-            contactForm.reset();
-        });
+        // Convert form data to JSON
+        const formDataObj = {};
+        formData.forEach((value, key) => formDataObj[key] = value);
 
-        // Check if iframes loaded successfully
-        document.addEventListener('DOMContentLoaded', function() {
-            // Check skills iframe after a delay
+        // AJAX request to FormSubmit.co
+        fetch('https://formsubmit.co/ajax/mnmyounus@gmail.com', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(formDataObj)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success === "true") {
+                statusElement.textContent = 'Message sent successfully! I will get back to you soon.';
+                statusElement.style.color = '#27ae60';
+                statusElement.style.backgroundColor = '#e8f8f0';
+                form.reset();
+            } else {
+                statusElement.textContent = 'Error sending message. Please try again or contact me directly at mnmyounus@gmail.com';
+                statusElement.style.color = '#e74c3c';
+                statusElement.style.backgroundColor = '#fdedec';
+            }
+        })
+        .catch(error => {
+            statusElement.textContent = 'Error sending message. Please try again or contact me directly at mnmyounus@gmail.com';
+            statusElement.style.color = '#e74c3c';
+            statusElement.style.backgroundColor = '#fdedec';
+            console.error('Error:', error);
+        })
+        .finally(() => {
+            submitButton.disabled = false;
+            submitButton.textContent = 'Send Message';
+            // Hide status message after 5 seconds
             setTimeout(() => {
-                const skillsFrame = document.querySelector('#skills iframe');
-                if (skillsFrame && skillsFrame.contentWindow.document.body.innerHTML === '') {
-                    document.getElementById('skills-fallback').style.display = 'block';
-                }
-            }, 2000);
-
-            // Check social iframe after a delay
-            setTimeout(() => {
-                const socialFrame = document.querySelector('#contact iframe');
-                if (socialFrame && socialFrame.contentWindow.document.body.innerHTML === '') {
-                    document.getElementById('social-fallback').style.display = 'block';
-                }
-            }, 2000);
+                statusElement.style.display = 'none';
+            }, 5000);
         });
-    </script>
-</body>
+    });
+</script>
+    </body>
 </html>
+    
