@@ -601,6 +601,68 @@ header {
 .nav-links {
   list-style: none;
   display: flex;
+/* navbar.css */
+}
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Translate Top Bar */
+.top-bar {
+  background: #ecf0f1;
+  text-align: right;
+  padding: 6px 12px;
+}
+
+#google_translate_element {
+  display: inline-block;
+  padding: 4px 8px;
+  background: white;
+  border-radius: 4px;
+}
+
+.goog-te-gadget {
+  font-size: 14px !important;
+  font-family: inherit !important;
+}
+
+.goog-te-combo {
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+/* Nav Container */
+header {
+  background-color: #2c3e50;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.main-nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+}
+
+.logo span {
+  color: #3498db;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
   align-items: center;
   gap: 1.5rem;
 }
@@ -629,7 +691,6 @@ header {
   left: 0;
   background: #34495e;
   border-radius: 4px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   min-width: 140px;
   padding: 0.5rem 0;
   z-index: 999;
@@ -640,8 +701,8 @@ header {
 }
 
 .dropdown-menu li a {
-  padding: 0.5rem 1rem;
   display: block;
+  padding: 0.5rem 1rem;
   color: white;
 }
 
@@ -665,15 +726,19 @@ header {
 }
 
 @media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
   .nav-links {
+    flex-direction: column;
     position: absolute;
     top: 100%;
     left: -100%;
     width: 100%;
     background-color: #2c3e50;
-    flex-direction: column;
-    padding: 1rem 0;
     transition: left 0.3s ease;
+    padding: 1rem 0;
   }
 
   .nav-links.active {
@@ -682,11 +747,8 @@ header {
 
   .dropdown-menu {
     position: relative;
+    background-color: #2c3e50;
     box-shadow: none;
-  }
-
-  .hamburger {
-    display: flex;
   }
 }
 
@@ -696,6 +758,8 @@ header {
     <!-- Navigation -->
     
         <!-- navbar.html -->
+
+    <!-- navbar.html -->
 <header>
   <div class="top-bar">
     <div id="google_translate_element"></div>
@@ -704,11 +768,11 @@ header {
   <nav class="main-nav">
     <div class="logo">Y Portfo<span>lio</span></div>
 
-    <div class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('active')">
+    <div class="hamburger" id="hamburger">
       <div></div><div></div><div></div>
     </div>
 
-    <ul class="nav-links">
+    <ul class="nav-links" id="navLinks">
       <li><a href="#home" class="active">Home</a></li>
       <li class="dropdown">
         <a href="#about">About ▾</a>
@@ -723,15 +787,26 @@ header {
   </nav>
 </header>
 
-<!-- Google Translate Script -->
+<!-- Google Translate script -->
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <script>
   function googleTranslateElementInit() {
     new google.translate.TranslateElement({
       pageLanguage: 'en',
-      layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+      includedLanguages: 'en,ta,si,hi,ar,fr,de,es,ru,zh-CN,ja,ko,pt,it,tr,id,vi,ms,th,nl,fa,uk,pl,ro,cs,sv',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
     }, 'google_translate_element');
   }
+
+  // Mobile nav toggle
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  });
 </script>
 
     
