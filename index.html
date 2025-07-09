@@ -1138,7 +1138,7 @@ header {
             statusElement.style.backgroundColor = '#ebf5fb';
 
             // AJAX request to FormSubmit.co with file upload
-            fetch('https://formsubmit.co/ajax/mnmyounus@gmail.com', {
+            fetch('https://formsubmit.co/ajax/mnmyounus@gmail.com' enctype="multipart/form-data", {
                 method: 'POST',
                 body: formData
             })
