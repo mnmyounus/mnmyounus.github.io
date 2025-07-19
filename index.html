@@ -733,17 +733,18 @@ header {
 
 <!-- ✅ Google Translate Script -->
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<script>
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'en',
-      includedLanguages: 'en,ta,si,hi,ar,fr,de,es,ru,zh-CN,ja,ko,pt,it,tr,id,vi,ms,th,nl,fa,uk,pl,ro,cs,sv',
-      layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
-      autoDisplay: false
-    }, 'google_translate_element');
-  }
 
-  document.addEventListener('DOMContentLoaded', () => {
+<script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: 'en,ta,si,hi,ar,fr,de,es,ru,zh-CN,ja,ko,pt,it,tr,id,vi,ms,th,nl,fa,uk,pl,ro,cs,sv,bg,da,el,he,no,hu,fi,sk,et,lt,lv,af,sw,ur,az,bs,ca,eu,gl,hr,mt,sl,sq,mk,cy,ga,be,is,ka,lo,ne,mn,hy,kk,ps,pa,te,kn,ml,bn,my,am,zu,ha,ig,yo',
+    layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
+    autoDisplay: false
+  }, 'google_translate_element');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('navLinks');
 
@@ -751,17 +752,18 @@ header {
     navLinks.classList.toggle('active');
   });
 
-    // 🛑 Prevent Sinhala as default
-    const observer = new MutationObserver(() => {
-      const combo = document.querySelector('.goog-te-combo');
-      if (combo && combo.value === 'si') {
-        combo.value = 'en';
-        combo.dispatchEvent(new Event('change'));
-      }
-    });
-    observer.observe(document.body, { childList: true, subtree: true });
+  // Force language to English on page load to prevent Sinhala
+  const observer = new MutationObserver(() => {
+    const combo = document.querySelector('.goog-te-combo');
+    if (combo && combo.value !== 'en') {
+      combo.value = 'en';
+      combo.dispatchEvent(new Event('change'));
+    }
   });
+  observer.observe(document.body, { childList: true, subtree: true });
+});
 </script>
+
 <!-- ✅ END -->
 
 
