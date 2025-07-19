@@ -709,16 +709,19 @@ header {
     <div class="logo">Y Portfo<span>lio</span></div>
 
     <div class="hamburger" id="hamburger">
-      <div></div><div></div><div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
 
     <ul class="nav-links" id="navLinks">
-      <li><a href="#home">Home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li class="dropdown">
-        <a href="#about">About ▾</a>
+        <a href="#">Pages ▾</a>
         <ul class="dropdown-menu">
-          <li><a href="#vision">Vision</a></li>
-          <li><a href="#mission">Mission</a></li>
+          <li><a href="page1.html">Page 1</a></li>
+          <li><a href="page2.html">Page 2</a></li>
+          <li><a href="page3.html">Page 3</a></li>
         </ul>
       </li>
       <li><a href="#skills">Skills</a></li>
@@ -726,6 +729,7 @@ header {
     </ul>
   </nav>
 </header>
+
 
 <!-- ✅ Google Translate Script -->
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
@@ -740,12 +744,13 @@ header {
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
 
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+});
 
     // 🛑 Prevent Sinhala as default
     const observer = new MutationObserver(() => {
