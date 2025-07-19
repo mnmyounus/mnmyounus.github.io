@@ -549,92 +549,41 @@
             opacity: 1;
             transform: translateY(0);
         }
-        /* navbar.css */
+        
 
-        }
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-/* Top Bar for Translate */
+/* Y Translator Bar */
 .top-bar {
   background: #ecf0f1;
-  text-align: right;
   padding: 6px 12px;
-}
-
-#google_translate_element {
-  display: inline-block;
-  padding: 4px 8px;
-  background: white;
-  border-radius: 4px;
-}
-
-/* Nav Container */
-header {
-  background-color: #2c3e50;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.main-nav {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem;
+  text-align: right;
   display: flex;
+  justify-content: flex-end;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: white;
+.translator-label {
+  font-weight: bold;
+  color: #2c3e50;
+  font-size: 14px;
 }
 
-.logo span {
-  color: #3498db;
+/* Clean up Google Translate branding */
+.goog-logo-link,
+.goog-te-gadget span {
+  display: none !important;
 }
-
-.nav-links {
-  list-style: none;
-  display: flex;
-/* navbar.css */
-}
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-/* Translate Top Bar */
-.top-bar {
-  background: #ecf0f1;
-  text-align: right;
-  padding: 6px 12px;
-}
-
-#google_translate_element {
-  display: inline-block;
-  padding: 4px 8px;
-  background: white;
-  border-radius: 4px;
-}
-
 .goog-te-gadget {
-  font-size: 14px !important;
-  font-family: inherit !important;
+  font-size: 0 !important;
 }
-
 .goog-te-combo {
+  font-size: 14px !important;
   padding: 4px 8px;
   border-radius: 4px;
   border: 1px solid #ccc;
 }
 
-/* Nav Container */
+/* Nav Base */
 header {
   background-color: #2c3e50;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -661,22 +610,16 @@ header {
 }
 
 .nav-links {
-  list-style: none;
   display: flex;
+  list-style: none;
   align-items: center;
   gap: 1.5rem;
-}
-
-.nav-links li {
-  position: relative;
 }
 
 .nav-links a {
   color: white;
   text-decoration: none;
   font-weight: 500;
-  padding: 6px;
-  transition: color 0.3s;
 }
 
 .nav-links a:hover {
@@ -684,6 +627,9 @@ header {
 }
 
 /* Dropdown */
+.nav-links li {
+  position: relative;
+}
 .dropdown-menu {
   display: none;
   position: absolute;
@@ -692,20 +638,16 @@ header {
   background: #34495e;
   border-radius: 4px;
   min-width: 140px;
-  padding: 0.5rem 0;
   z-index: 999;
 }
-
 .dropdown:hover .dropdown-menu {
   display: block;
 }
-
 .dropdown-menu li a {
   display: block;
   padding: 0.5rem 1rem;
   color: white;
 }
-
 .dropdown-menu li a:hover {
   background-color: #2c3e50;
   color: #3498db;
@@ -715,16 +657,16 @@ header {
 .hamburger {
   display: none;
   flex-direction: column;
-  cursor: pointer;
   gap: 4px;
+  cursor: pointer;
 }
-
 .hamburger div {
   width: 25px;
   height: 3px;
-  background-color: white;
+  background: white;
 }
 
+/* Mobile Nav */
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
@@ -734,34 +676,32 @@ header {
     flex-direction: column;
     position: absolute;
     top: 100%;
-    left: -100%;
+    left: 0;
     width: 100%;
     background-color: #2c3e50;
-    transition: left 0.3s ease;
-    padding: 1rem 0;
+    display: none;
   }
 
   .nav-links.active {
-    left: 0;
+    display: flex;
   }
 
   .dropdown-menu {
     position: relative;
-    background-color: #2c3e50;
-    box-shadow: none;
   }
 }
 
+  
     </style>
 </head>
 <body>
     <!-- Navigation -->
     
         <!-- navbar.html -->
-
-    <!-- navbar.html -->
+<!-- ✅ START: Y Translator + Navbar -->
 <header>
   <div class="top-bar">
+    <span class="translator-label">🌐 Y Translator</span>
     <div id="google_translate_element"></div>
   </div>
 
@@ -773,7 +713,7 @@ header {
     </div>
 
     <ul class="nav-links" id="navLinks">
-      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#home">Home</a></li>
       <li class="dropdown">
         <a href="#about">About ▾</a>
         <ul class="dropdown-menu">
@@ -787,18 +727,18 @@ header {
   </nav>
 </header>
 
-<!-- Google Translate script -->
+<!-- ✅ Google Translate Script -->
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <script>
   function googleTranslateElementInit() {
     new google.translate.TranslateElement({
       pageLanguage: 'en',
       includedLanguages: 'en,ta,si,hi,ar,fr,de,es,ru,zh-CN,ja,ko,pt,it,tr,id,vi,ms,th,nl,fa,uk,pl,ro,cs,sv',
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
+      autoDisplay: false
     }, 'google_translate_element');
   }
 
-  // Mobile nav toggle
   document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
@@ -806,8 +746,20 @@ header {
     hamburger.addEventListener('click', () => {
       navLinks.classList.toggle('active');
     });
+
+    // 🛑 Prevent Sinhala as default
+    const observer = new MutationObserver(() => {
+      const combo = document.querySelector('.goog-te-combo');
+      if (combo && combo.value === 'si') {
+        combo.value = 'en';
+        combo.dispatchEvent(new Event('change'));
+      }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
   });
 </script>
+<!-- ✅ END -->
+
 
     
 
