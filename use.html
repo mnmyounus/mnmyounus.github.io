@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yweb Feedback + Navbar Widget</title>
+<style>
+/* === Scoped YWEB Styles === */
+.yweb * {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== FEEDBACK BANNER ===== */
+.yweb-banner {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  max-width: 800px;
+  width: 90%;
+  padding: 30px;
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99998;
+  animation: yweb-fadeIn 0.5s ease;
+}
+
+@keyframes yweb-fadeIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(30px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+.yweb-banner h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #2d3436;
+}
+
+.yweb-banner p {
+  text-align: center;
+  color: #636e72;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.yweb-banner .yweb-message-btn {
+  display: block;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+}
+
+.yweb-banner .yweb-message-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4);
+}
+
+.yweb-banner .yweb-security-note {
+  background: #fff5f5;
+  border-left: 4px solid #ff6b6b;
+  padding: 12px 15px;
+  margin-top: 20px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #e53e3e;
+}
+
+.yweb-banner .yweb-security-note a {
+  color: #e53e3e;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.yweb-banner .yweb-security-note a:hover {
+  text-decoration: underline;
+}
+
+.yweb-close-banner {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.yweb-close-banner:hover {
+  color: #ff4757;
+}
+
+/* ===== FLOATING NAVBAR BALL ===== */
+.yweb-navbar-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: none; /* Hidden until banner closed */
+  z-index: 100000;
+}
+
+.yweb-nav-ball {
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle at 30% 30%, #ff6b6b, #ff4757);
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3),
+              inset 0 2px 5px rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.yweb-nav-ball:hover {
+  transform: scale(1.1);
+}
+
+.yweb-nav-ball::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background: white;
+  border-radius: 2px;
+  box-shadow: 0 -6px 0 white, 0 6px 0 white;
+}
+
+.yweb-blast-effect {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 99999;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.yweb-blast-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+  transform: scale(0);
+  animation: yweb-blast 0.8s ease-out forwards;
+}
+
+@keyframes yweb-blast {
+  0% { transform: scale(0); opacity: 1; }
+  100% { transform: scale(1); opacity: 0; }
+}
+
+/* NAV MENU */
+.yweb-nav-menu {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: rgba(255,255,255,0.95);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  min-width: 280px;
+  z-index: 100001;
+}
+
+.yweb-nav-menu.active {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+.yweb-nav-menu h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.yweb-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.yweb-nav-link {
+  display: block;
+  padding: 10px 20px;
+  background: #4dabf7;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 500;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.yweb-nav-link:hover {
+  background: #339af0;
+  transform: translateY(-2px);
+}
+
+.yweb-close-menu-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+}
+
+.yweb-close-menu-btn:hover {
+  color: #333;
+}
+</style>
+</head>
+<body>
+<div class="yweb">
+  <!-- FEEDBACK BANNER -->
+  <div class="yweb-banner" id="ywebBanner">
+    <button class="yweb-close-banner" id="ywebCloseBanner">&times;</button>
+    <h2>Your Feedback Matters</h2>
+    <p>Your visit makes me happy! If you liked or disliked this website, share your thoughts below.</p>
+    <button class="yweb-message-btn" id="ywebMessageBtn">Send Message</button>
+    <div class="yweb-security-note">
+      <p><strong>Important:</strong> Messages are private. For extra security, email <a href="mailto:mnmyounus@proton.me">mnmyounus@proton.me</a> or Signal at <a href="https://signal.com/+1545565666" target="_blank">+1545565666</a>.</p>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <div class="yweb-navbar-container" id="ywebNavbar">
+    <div class="yweb-nav-ball" id="ywebNavBall"></div>
+    <div class="yweb-blast-effect" id="ywebBlast"></div>
+    <div class="yweb-nav-menu" id="ywebNavMenu">
+      <button class="yweb-close-menu-btn" id="ywebCloseMenu">&times;</button>
+      <h2>Navigation</h2>
+      <div class="yweb-nav-links">
+        <a href="#" class="yweb-nav-link">Home</a>
+        <a href="#" class="yweb-nav-link">About</a>
+        <a href="#" class="yweb-nav-link">Services</a>
+        <a href="#" class="yweb-nav-link">Portfolio</a>
+        <a href="#" class="yweb-nav-link">Contact</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const banner = document.getElementById('ywebBanner');
+  const closeBanner = document.getElementById('ywebCloseBanner');
+  const navbar = document.getElementById('ywebNavbar');
+  const navBall = document.getElementById('ywebNavBall');
+  const blast = document.getElementById('ywebBlast');
+  const navMenu = document.getElementById('ywebNavMenu');
+  const closeMenu = document.getElementById('ywebCloseMenu');
+  const msgBtn = document.getElementById('ywebMessageBtn');
+
+  // Close banner and show navbar
+  closeBanner.addEventListener('click', () => {
+    banner.style.display = 'none';
+    navbar.style.display = 'block';
+  });
+
+  // Message button
+  msgBtn.addEventListener('click', () => {
+    alert("Thank you for your interest! In a real implementation, this would open a contact form.");
+  });
+
+  // Navbar behavior
+  function createBlast() {
+    blast.innerHTML = '';
+    for(let i=0;i<5;i++){
+      const c = document.createElement('div');
+      c.className = 'yweb-blast-circle';
+      const size = 100 + Math.random()*200;
+      const offX = (Math.random()-0.5)*100;
+      const offY = (Math.random()-0.5)*100;
+      c.style.width = `${size}px`;
+      c.style.height = `${size}px`;
+      c.style.left = `calc(50% - ${size/2}px + ${offX}px)`;
+      c.style.top = `calc(50% - ${size/2}px + ${offY}px)`;
+      blast.appendChild(c);
+    }
+    blast.style.opacity = '1';
+    setTimeout(()=>blast.style.opacity='0',800);
+  }
+
+  navBall.addEventListener('click', ()=>{
+    createBlast();
+    setTimeout(()=>navMenu.classList.add('active'), 300);
+  });
+
+  closeMenu.addEventListener('click', ()=>navMenu.classList.remove('active'));
+
+  document.addEventListener('click', (e)=>{
+    if(!navMenu.contains(e.target) && !navBall.contains(e.target)){
+      navMenu.classList.remove('active');
+    }
+  });
+})();
+</script>
+</body>
+</html>
