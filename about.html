@@ -263,7 +263,183 @@
   </style>
 </head>
 <body>
+ <!-- Welcome Entrance — ribbon/confetti canvas -->
+  <canvas id="welcomeCanvas" style="position:fixed;inset:0;z-index:9998;pointer-events:none;"></canvas>
+  <div id="welcomeMessage" style="position:fixed;top:38%;left:50%;transform:translate(-50%,-50%) scale(0.9);opacity:0;z-index:9999;pointer-events:none;text-align:center;font-family:'Inter',-apple-system,sans-serif;transition:opacity .6s ease, transform .6s ease;">
+    <div style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#4FD1C5;margin-bottom:10px;">Welcome</div>
+    <div style="font-size:clamp(1.4rem,4vw,2.2rem);font-weight:800;color:#fff;letter-spacing:-.02em;text-shadow:0 4px 24px rgba(0,0,0,.5);">MNM Younus — Software Portfolio</div>
+  </div>
 
+  <style>
+    @media (prefers-reduced-motion: reduce){
+      #welcomeCanvas, #welcomeMessage{ display:none !important; }
+    }
+  </style>
+
+  <script>
+  (function(){
+    "use strict";
+    const canvas = document.getElementById('welcomeCanvas');
+    const msg = document.getElementById('welcomeMessage');
+    const ctx = canvas.getContext('2d');
+    let pieces = [];
+    let animId = null;
+    let running = false;
+
+    function resize(){
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+
+    const COLORS = ['#4FD1C5', '#5AC8FA', '#8BD17C', '#B892FF', '#FFFFFF', '#5EEAD4'];
+
+    function makePiece(){
+      const isRibbon = Math.random() < 0.35;
+      return {
+        x: Math.random() * canvas.width,
+        y: -20 - Math.random() * canvas.height * 0.4,
+        w: isRibbon ? 6 + Math.random() * 4 : 7 + Math.random() * 5,
+        h: isRibbon ? 16 + Math.random() * 14 : 7 + Math.random() * 5,
+        color: COLORS[Math.floor(Math.random() * COLORS.length)],
+        rot: Math.random() * Math.PI * 2,
+        rotSpeed: (Math.random() - 0.5) * 0.12,
+        vy: 2.2 + Math.random() * 2.6,
+        vx: (Math.random() - 0.5) * 2.2,
+        sway: Math.random() * Math.PI * 2,
+        swaySpeed: 0.02 + Math.random() * 0.02,
+        opacity: 1,
+        isRibbon: isRibbon
+      };
+    }
+
+    function launch(){
+      resize();
+      pieces = [];
+      const count = Math.min(140, Math.floor(window.innerWidth / 8));
+      for(let i = 0; i < count; i++){
+        const p = makePiece();
+        p.y = -20 - Math.random() * 300;
+        pieces.push(p);
+      }
+
+      msg.style.opacity = '1';
+      msg.style.transform = 'translate(-50%,-50%) scale(1)';
+
+      running = true;
+      let elapsed = 0;
+      const fadeStart = 2200;
+      const totalLife = 3400;
+
+      let lastTime = performance.now();
+      function tick(now){
+        const dt = Math.min(now - lastTime, 40);
+        lastTime = now;
+        elapsed += dt;
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        let globalFade = 1;
+        if(elapsed > fadeStart){
+          globalFade = Math.max(0, 1 - (elapsed - fadeStart) / (totalLife - fadeStart));
+        }
+
+        pieces.forEach(function(p){
+          p.sway += p.swaySpeed;
+          p.x += p.vx + Math.sin(p.sway) * 0.6;
+          p.y += p.vy;
+          p.rot += p.rotSpeed;
+
+          ctx.save();
+          ctx.globalAlpha = globalFade;
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.rot);
+          ctx.fillStyle = p.color;
+          if(p.isRibbon){
+            ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+          } else {
+            ctx.beginPath();
+            ctx.ellipse(0, 0, p.w/2, p.h/2, 0, 0, Math.PI*2);
+            ctx.fill();
+          }
+          ctx.restore();
+        });
+
+        if(elapsed < totalLife){
+          animId = requestAnimationFrame(tick);
+        } else {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          msg.style.opacity = '0';
+          msg.style.transform = 'translate(-50%,-50%) scale(0.9)';
+          running = false;
+        }
+      }
+      animId = requestAnimationFrame(tick);
+    }
+
+    window.__playWelcomeEntrance = function(){
+      if(!running) launch();
+    };
+  })();
+  </script>
+
+  <!-- Hidden Audio Player Engine -->
+  <audio id="bgMusicPlayer" preload="auto"></audio>
+
+  <!-- Mute Button Controller -->
+  <div style="position: fixed; bottom: 20px; right: 20px; background: rgba(0,0,0,0.85); padding: 8px; border-radius: 50%; z-index: 9999; box-shadow: 0 4px 10px rgba(0,0,0,0.3); display:flex; align-items:center;">
+    <button id="bgMusicMuteBtn" aria-label="Mute music" style="background:rgba(255,255,255,0.15); border:none; color:#fff; width:32px; height:32px; border-radius:50%; cursor:pointer; font-size:14px; display:flex; align-items:center; justify-content:center;">🔊</button>
+  </div>
+
+  <script>
+    const playlistFiles = [
+      { title: "Song 1", file: "YPlace_Mars.mp3" },
+      { title: "Song 2", file: "YPlace_Mars.mp3" },
+      { title: "Song 3", file: "YPlace_Mars.mp3" }
+    ];
+    let playedCount = 0;
+    let isMuted = false;
+    const player = document.getElementById('bgMusicPlayer');
+    const muteBtn = document.getElementById('bgMusicMuteBtn');
+
+    function loadAndPlayTrack(index) {
+      player.src = playlistFiles[index].file;
+      player.play().catch(err => {
+        console.log("Autoplay blocked until user interacts with page.");
+      });
+    }
+
+    function getNextTrackIndex() {
+      playedCount++;
+      if (playedCount < 3) {
+        return playedCount;
+      }
+      return Math.floor(Math.random() * playlistFiles.length);
+    }
+
+    player.onended = function() {
+      const nextIndex = getNextTrackIndex();
+      loadAndPlayTrack(nextIndex);
+    };
+
+    // First interaction unlocks audio AND launches welcome animation
+    document.addEventListener('click', function unlockPage() {
+      if (!player.src) {
+        loadAndPlayTrack(0);
+      }
+      if (typeof window.__playWelcomeEntrance === 'function') {
+        window.__playWelcomeEntrance();
+      }
+    }, { once: true });
+
+    muteBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      isMuted = !isMuted;
+      player.muted = isMuted;
+      muteBtn.textContent = isMuted ? "🔇" : "🔊";
+      muteBtn.setAttribute("aria-label", isMuted ? "Unmute music" : "Mute music");
+    });
+  </script>
 <div class="bg-grid"></div>
 <div class="bg-glow"></div>
 
