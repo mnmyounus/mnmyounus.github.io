@@ -4,27 +4,25 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>M. YOUNUS — IT Professional, Developer & Visionary</title>
-  <meta name="description" content="M. YOUNUS (@mnmyounus) — 17-year-old IT professional, developer, Muslim, privacy advocate and visionary. Founder of Y. Google Maps PE, Amnesty International youth member, UNICEF graduate."/>
-  <meta name="keywords" content="M YOUNUS, mnmyounus, IT professional, developer, privacy, human rights, Muslim, Y, visionary, cybersecurity"/>
+  <meta name="description" content="M. YOUNUS (@mnmyounus) — IT professional, developer, privacy advocate and visionary. Founder of Y. Open-source privacy engineer building zero-telemetry tools. Google Maps PE, Amnesty International youth member, UNICEF graduate."/>
+  <meta name="keywords" content="M YOUNUS, mnmyounus, IT professional, developer, privacy, human rights, Y, visionary, cybersecurity"/>
   <meta name="author" content="M. YOUNUS"/>
   <meta name="robots" content="index, follow"/>
   <link rel="canonical" href="https://mnmyounus.github.io/"/>
   <meta property="og:type" content="website"/>
   <meta property="og:title" content="M. YOUNUS — IT Professional & Visionary"/>
-  <meta property="og:description" content="17-year-old IT professional, developer, Muslim, privacy advocate. Founder of Y."/>
+  <meta property="og:description" content="IT professional, developer and privacy advocate. Founder of Y."/>
   <meta property="og:url" content="https://mnmyounus.github.io/"/>
-  <meta property="og:image" content="https://mnmyounus.github.io/hidden.jpg"/>
-  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:card" content="summary"/>
   <meta name="twitter:title" content="M. YOUNUS — IT Professional & Visionary"/>
-  <meta name="twitter:description" content="17-year-old IT professional, developer, Muslim, privacy advocate. Founder of Y."/>
-  <meta name="twitter:image" content="https://mnmyounus.github.io/hidden.jpg"/>
+  <meta name="twitter:description" content="IT professional, developer and privacy advocate. Founder of Y."/>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Person","name":"M. YOUNUS","alternateName":"@mnmyounus",
-  "description":"17-year-old IT professional, developer, Muslim, privacy advocate and visionary. Founder of Y.",
-  "url":"https://mnmyounus.github.io/","image":"https://mnmyounus.github.io/hidden.jpg",
-  "jobTitle":"IT Professional, Developer","knowsAbout":["Information Technology","Software Development","Privacy","Cybersecurity","Human Rights","Web Development"],
+  "description":"IT professional, developer, privacy advocate and visionary. Founder of Y.",
+  "url":"https://mnmyounus.github.io/",
+  "jobTitle":"IT Professional, Open-Source Privacy Engineer","knowsAbout":["Information Technology","Software Development","Privacy","Cybersecurity","Human Rights","Web Development","Threat Modeling","Cloud Security"],
   "memberOf":[{"@type":"Organization","name":"Amnesty International"},{"@type":"Organization","name":"UNICEF"},{"@type":"Organization","name":"Google Maps Local Guides"}],
-  "sameAs":["https://mnmyounus.github.io/vision","https://mnmyounus.github.io/ysocial"]}
+  "sameAs":["https://github.com/mnmyounus","https://mnmyounus.github.io/Projects","https://mnmyounus.github.io/vision","https://mnmyounus.github.io/ysocial"]}
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
@@ -289,6 +287,64 @@
     .pop-box p{font-size:.88rem;color:var(--sub);line-height:1.72;margin-bottom:6px}
     .pop-warn{font-family:var(--mono);font-size:.66rem;color:var(--red);letter-spacing:.06em;margin-top:8px}
 
+    /* PROJECTS & CREDENTIALS */
+    .pg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .pj{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:20px;box-shadow:var(--sh);transition:border-color .2s,transform .2s;display:block;text-decoration:none}
+    .pj:hover{border-color:rgba(108,143,255,.4);transform:translateY(-2px)}
+    .pj-t{font-family:var(--mono);font-size:.58rem;color:var(--accent);letter-spacing:.1em;margin-bottom:5px}
+    .pj-n{font-size:.92rem;font-weight:600;color:var(--text);margin-bottom:6px}
+    .pj-d{font-size:.8rem;color:var(--sub);line-height:1.62}
+    .cred{background:var(--card);border:1px solid var(--border);border-radius:var(--r);margin-bottom:12px;box-shadow:var(--sh)}
+    .cred summary{cursor:pointer;list-style:none;padding:16px 20px;font-weight:600;font-size:.92rem;display:flex;justify-content:space-between;gap:12px}
+    .cred summary::-webkit-details-marker{display:none}
+    .cred summary::after{content:'+';color:var(--accent);font-family:var(--mono)}
+    .cred[open] summary::after{content:'\2013'}
+    .cred summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+    .cred ul{list-style:none;padding:0 20px 12px}
+    .cred li{font-size:.82rem;color:var(--sub);line-height:1.65;padding:9px 0;border-top:1px solid var(--border)}
+    .cred li b{color:var(--text);font-weight:600}
+    /* Y BALL NAV */
+    .fnav{--ease:cubic-bezier(.2,.8,.2,1);padding:6px}
+    .fnav-ball{flex:0 0 auto;width:46px;height:46px;border-radius:50%;border:0;cursor:pointer;color:#fff;
+      font-family:var(--serif);font-size:1.4rem;line-height:1;display:grid;place-items:center;
+      background:radial-gradient(circle at 32% 28%,var(--accent2),var(--accent) 60%,#3d5adf);
+      box-shadow:0 4px 18px rgba(108,143,255,.45),inset 0 -3px 8px rgba(0,0,0,.25);transition:transform .2s}
+    .fnav-ball:hover{transform:scale(1.08)}
+    .fnav-ball:focus-visible{outline:2px solid var(--text);outline-offset:3px}
+    .fnav:not(.open) .fnav-ball{animation:ballglow 2.6s ease-in-out infinite}
+    .fnav:not(.open) .fnav-ball.shake{animation:shake .45s ease-in-out}
+    @keyframes ballglow{0%,100%{box-shadow:0 4px 18px rgba(108,143,255,.4),inset 0 -3px 8px rgba(0,0,0,.25)}50%{box-shadow:0 4px 30px rgba(167,139,250,.75),inset 0 -3px 8px rgba(0,0,0,.25)}}
+    @keyframes shake{0%,100%{transform:translate(0) rotate(0) scale(1)}15%{transform:translate(-5px,0) rotate(-16deg) scale(1.08)}30%{transform:translate(5px,0) rotate(14deg) scale(1.12)}45%{transform:translate(-4px,0) rotate(-12deg) scale(1.16)}60%{transform:translate(4px,0) rotate(10deg) scale(1.2)}80%{transform:translate(-2px,0) rotate(-5deg) scale(1.24)}}
+    .fnav-links{display:flex;align-items:center;max-width:0;opacity:0;overflow:hidden;white-space:nowrap;visibility:hidden;pointer-events:none;
+      transition:max-width .5s var(--ease),max-height .5s var(--ease),opacity .3s,padding .3s,visibility 0s .5s}
+    .fnav.open .fnav-links{max-width:900px;opacity:1;padding:0 8px 0 6px;visibility:visible;pointer-events:auto;
+      transition:max-width .5s var(--ease),max-height .5s var(--ease),opacity .3s,padding .3s,visibility 0s}
+    .blast{position:fixed;width:0;height:0;z-index:950;pointer-events:none}
+    .blast-ring{position:absolute;left:-30px;top:-30px;width:60px;height:60px;border-radius:50%;border:2px solid var(--accent);
+      background:radial-gradient(circle,rgba(167,139,250,.55),rgba(108,143,255,.15) 55%,transparent 70%);animation:ring .6s ease-out forwards}
+    .blast-p{position:absolute;left:-3px;top:-3px;width:6px;height:6px;border-radius:50%;background:var(--c);box-shadow:0 0 8px var(--c);animation:fly .65s cubic-bezier(.1,.7,.3,1) forwards}
+    @keyframes ring{from{transform:scale(.4);opacity:1}to{transform:scale(5);opacity:0}}
+    @keyframes fly{from{transform:translate(0,0) scale(1);opacity:1}to{transform:translate(var(--dx),var(--dy)) scale(0);opacity:0}}
+    @media(min-width:641px) and (max-width:960px){.fnav.open .fnav-links{max-width:calc(100vw - 100px);overflow-x:auto;scrollbar-width:none}}
+    @media(max-width:640px){
+      .fnav{max-width:none;border-radius:29px;flex-direction:column-reverse;align-items:flex-end;gap:0}
+      .fnav-links{flex-direction:column;align-items:stretch;max-height:0}
+      .fnav.open .fnav-links{max-width:200px;max-height:420px;padding:6px 4px 8px}
+    }
+    @media(prefers-reduced-motion:reduce){.fnav-ball,.fnav-links{animation:none!important;transition:none!important}.blast{display:none}}
+    @media(max-width:860px){.pg{grid-template-columns:1fr 1fr}}
+    @media(max-width:480px){.pg{grid-template-columns:1fr}}
+
+    /* Y BALL: draggable */
+    .fnav-ball{touch-action:none;-webkit-user-select:none;user-select:none;cursor:grab}
+    .fnav.dragging{transition:none;box-shadow:0 14px 48px rgba(0,0,0,.6),0 0 0 1px rgba(108,143,255,.25)}
+    .fnav.dragging .fnav-ball{cursor:grabbing;animation:none!important;transform:scale(1.12)}
+    .fnav.no-anim .fnav-links{transition:none!important}
+    .fnav-links::-webkit-scrollbar{display:none}
+    .fnav.open .fnav-links{max-width:min(900px,var(--avail,900px));overflow-x:auto;scrollbar-width:none}
+    @media(min-width:641px) and (max-width:960px){.fnav.open .fnav-links{max-width:min(calc(100vw - 100px),var(--avail,9999px))}}
+    @media(max-width:640px){.fnav.open .fnav-links{max-width:200px;max-height:min(420px,var(--availh,420px));overflow-x:hidden;overflow-y:auto}}
+
     /* FOOTER */
     footer{background:var(--bg2);border-top:1px solid var(--border);padding:36px 0 110px}
     .fi{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
@@ -318,7 +374,8 @@
 
 <!-- FLOATING BALL NAV -->
 <nav class="fnav" id="fnav" aria-label="Main navigation">
-  <span class="fnav-brand">M. YOUNUS</span>
+  <button class="fnav-ball" id="yball" type="button" aria-expanded="false" aria-controls="fnav-links" aria-label="Open menu">Y</button>
+  <div class="fnav-links" id="fnav-links">
   <a href="#home">Home</a>
   <div class="fsep"></div>
   <a href="#about">About</a>
@@ -327,11 +384,16 @@
   <div class="fsep"></div>
   <a href="#skills">Skills</a>
   <div class="fsep"></div>
+  <a href="#projects">Projects</a>
+  <div class="fsep"></div>
+  <a href="#credentials">Credentials</a>
+  <div class="fsep"></div>
   <a href="#values">Values</a>
   <div class="fsep"></div>
   <a href="#contact">Contact</a>
   <div class="fsep"></div>
   <a href="https://mnmyounus.github.io/vision" style="color:var(--accent2)">Vision →</a>
+</div>
 </nav>
 
 <!-- ══ HERO ══ -->
@@ -344,15 +406,14 @@
         <div class="hero-roles" aria-label="Professional titles">
           @mnmyounus &nbsp;·&nbsp; 🧠 Ph.D &nbsp;·&nbsp; 🧬 Neurologist &nbsp;·&nbsp; 💻 IT Professional<br/>
           🧠 Intelligent &nbsp;·&nbsp; 🪖 Military Strategist &nbsp;·&nbsp; ⚖️ Judicial Mind<br/>
-          👨‍💻 Developer &nbsp;·&nbsp; 🎨 Creative Thinker &nbsp;·&nbsp; ☪️ Muslim &nbsp;·&nbsp; Age 17
+          👨‍💻 Developer &nbsp;·&nbsp; 🎨 Creative Thinker &nbsp;·&nbsp; 🛡️ Privacy Engineer
         </div>
         <p class="hero-desc">
-          A 17-year-old <strong>IT professional, developer,</strong> and <strong>privacy advocate</strong>
-          with a foundation in technology,<strong> human rights,</strong> and ethical systems.
+          An <strong>IT professional, developer,</strong> and <strong>privacy advocate</strong>
+          with a foundation in technology,<strong> human rights,</strong> and ethical systems. I build <strong>zero-telemetry, open-source</strong> tools for local-first privacy.
           Location: <strong>UNKNOWN</strong>.
         </p>
         <div class="pill-row">
-          <span class="pill p-gr">☪ Muslim</span>
           <span class="pill p-bl">🔒 Privacy First</span>
           <span class="pill p-go">⚖ Human Rights</span>
           <span class="pill p-pu">💻 IT Professional</span>
@@ -367,16 +428,12 @@
       <!-- PROFILE CARD -->
       <div class="pcard rev">
         <div class="av-wrap">
-          <img src="https://mnmyounus.github.io/hidden.jpg" alt="M. YOUNUS" class="av"
-            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-          <div class="av-ph">🧑‍💻</div>
+          <div class="av-ph" style="display:flex">🧑‍💻</div>
           <span class="av-live"></span>
         </div>
         <div class="pn">M. YOUNUS</div>
         <div class="ph">@mnmyounus</div>
-        <div class="pr"><span class="pk">Age</span><span class="pv">17 yrs</span></div>
         <div class="pr"><span class="pk">Location</span><span class="pv go">UNKNOWN 🌍</span></div>
-        <div class="pr"><span class="pk">Faith</span><span class="pv gr">ISLAM ☪</span></div>
         <div class="pr"><span class="pk">Role</span><span class="pv bl">IT Professional</span></div>
         <div class="pr"><span class="pk">Entity</span><span class="pv bl">Founder of Y</span></div>
         <div class="pr"><span class="pk">Details</span><span class="hid">* * * HIDDEN * * *</span></div>
@@ -399,13 +456,10 @@
     <div class="two rev">
       <div>
         <p style="font-size:.97rem;line-height:1.85;color:var(--sub);margin-bottom:17px">
-          I am <strong style="color:var(--text)">M. YOUNUS</strong> — a 17-year-old IT professional, developer, and privacy advocate. I work at the intersection of <strong style="color:var(--text)">technology, human rights, and ethics</strong>, building systems that respect people rather than exploit them.
+          I am <strong style="color:var(--text)">M. YOUNUS</strong> — an IT professional, developer, and privacy advocate. I work at the intersection of <strong style="color:var(--text)">technology, human rights, and ethics</strong>, building systems that respect people rather than exploit them.
         </p>
         <p style="font-size:.97rem;line-height:1.85;color:var(--sub);margin-bottom:17px">
           My location is <strong style="color:var(--text)">UNKNOWN</strong> — not mystery, but principle. Privacy is a right. I stand against the surveillance models of companies like Google and Meta and build with that principle at the core of everything I do.
-        </p>
-        <p style="font-size:.97rem;line-height:1.85;color:var(--sub);margin-bottom:22px">
-          A <strong style="color:var(--text)">proud Muslim ☪</strong> — faith guides everything. Ethics, discipline, and an unbreakable commitment to justice and service to humanity.
         </p>
         <a href="about.html" class="btn btn-fill" style="font-size:.84rem">Read My Full Vision →</a>
       </div>
@@ -415,8 +469,8 @@
           <div class="ic-row"><span class="ic-k">Full Name</span><span class="ic-v hid">* * * * * * *</span></div>
           <div class="ic-row"><span class="ic-k">Country</span><span class="ic-v go">UNKNOWN 🌍</span></div>
           <div class="ic-row"><span class="ic-k">Email</span><span class="ic-v hid">* * * @ * * *</span></div>
-          <div class="ic-row"><span class="ic-k">Age</span><span class="ic-v bl">17</span></div>
-          <div class="ic-row"><span class="ic-k">Faith</span><span class="ic-v gr">ISLAM ☪</span></div>
+          <div class="ic-row"><span class="ic-k">Age</span><span class="ic-v hid">* *</span></div>
+          <div class="ic-row"><span class="ic-k">Faith</span><span class="ic-v hid">* * * *</span></div>
         </div>
         <div class="y-promo">
           <div class="y-promo-label">🌐 Y — THE ENTITY</div>
@@ -459,12 +513,14 @@
           <div class="rc-desc">Completed official UNICEF coursework on child rights, global development, and humanitarian principles — real-world foundation for impact.</div>
         </div>
       </div>
+      <div class="rc"><div class="rc-ico">🧅</div><div><div class="rc-org">Tor Project · Weblate</div><div class="rc-title">Albanian (sq) Translator</div><div class="rc-desc">Translated Tor Project installer software strings into Albanian through Weblate.</div></div></div>
+      <div class="rc"><div class="rc-ico">🏛️</div><div><div class="rc-org">International Model United Nations</div><div class="rc-title">Campus Ambassador Intern</div><div class="rc-desc">Appointed as a Campus Ambassador Intern with IMUN.</div></div></div>
       <div class="rc">
         <div class="rc-ico">💻</div>
         <div>
           <div class="rc-org">Independent · Self-Directed</div>
           <div class="rc-title">IT Professional &amp; Developer</div>
-          <div class="rc-desc">Building tools, platforms, and systems aligned with privacy, security, and digital sovereignty. See Skills section for the full technical stack.</div>
+          <div class="rc-desc">Building tools, platforms, and systems aligned with privacy, security, and digital sovereignty. See Projects for the full tool portfolio.</div>
         </div>
       </div>
     </div>
@@ -484,7 +540,7 @@
       <span class="chip">Network Security</span><span class="chip">Systems Thinking</span>
       <span class="chip">SEO</span><span class="chip">Information Technology</span>
       <span class="chip">Human Rights Advocacy</span><span class="chip">Diplomacy</span>
-      <span class="chip">Research &amp; Analysis</span><span class="chip">Creative Direction</span>
+      <span class="chip">Research &amp; Analysis</span><span class="chip">Creative Direction</span><span class="chip">Operational Security</span><span class="chip">Threat Modeling</span><span class="chip">Masked Relay Routing</span><span class="chip">Anonymized Identifiers</span><span class="chip">AWS Cloud Security</span><span class="chip">AWS Cost Management</span><span class="chip">Azure Virtual Machines</span><span class="chip">Self-Hosted Encrypted Storage</span><span class="chip">Open-Source Localization</span>
     </div>
     <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:22px;box-shadow:var(--sh)" class="rev">
       <div style="font-family:var(--mono);font-size:.62rem;color:var(--muted);letter-spacing:.1em;margin-bottom:12px">FULL SKILLS PAGE:</div>
@@ -498,10 +554,75 @@
   </div>
 </section>
 
-<!-- ══ VALUES ══ -->
-<section id="values" aria-labelledby="vh">
+<!-- ══ PROJECTS ══ -->
+<section id="projects" aria-labelledby="pjh">
   <div class="page">
-    <div class="se">// 04 — Core Values</div>
+    <div class="se">// 04 — Software Portfolio</div>
+    <h2 class="sh" id="pjh">Privacy &amp; <span>Security Tools</span></h2>
+    <div class="div"></div>
+    <p class="ss">Eleven open-source tools for local-first data protection. No telemetry, auditable code, nothing phoning home.</p>
+    <div class="pill-row">
+      <span class="pill p-gr">Zero telemetry</span><span class="pill p-bl">100% open source</span>
+      <span class="pill p-pu">Auditable code</span><span class="pill p-go">Local-first</span>
+    </div>
+    <div class="pg rev">
+      <div class="pj"><div class="pj-t">Windows · Android</div><div class="pj-n">YFP · Your Files Protector</div><div class="pj-d">Overwrites free drive space so deleted files cannot be recovered by consumer forensic tools.</div></div>
+      <div class="pj"><div class="pj-t">Android</div><div class="pj-n">YFDW · Your File Downloader from Websites</div><div class="pj-d">Download manager with 32-chunk parallel downloads, embedded Tor and an automatic network kill switch.</div></div>
+      <div class="pj"><div class="pj-t">Android · Windows</div><div class="pj-n">YPI · Your Privacy Indicator</div><div class="pj-d">Floating overlay showing camera, mic, location, network and Bluetooth use, with encrypted logs.</div></div>
+      <div class="pj"><div class="pj-t">Android TV</div><div class="pj-n">YTSR · Your TV Screen Recorder</div><div class="pj-d">Offline screen and audio recorder that holds no INTERNET permission.</div></div>
+      <div class="pj"><div class="pj-t">Android</div><div class="pj-n">YPVM · Your Private Virtual Machine</div><div class="pj-d">Device Owner app with a Host/Guest split, dual PINs and an explicit Emergency Unlock.</div></div>
+      <div class="pj"><div class="pj-t">Browser</div><div class="pj-n">YSPB · Your Security &amp; Privacy Browser</div><div class="pj-d">Sandboxed Next.js proxy browser with anti-fingerprinting, user-agent spoofing, media sniffing and malware screening.</div></div>
+      <div class="pj"><div class="pj-t">Storage</div><div class="pj-n">Vault</div><div class="pj-d">Single-user zero-knowledge vault with double client-side AES-GCM-256 encryption and SRP-6a authentication.</div></div>
+      <div class="pj"><div class="pj-t">LAN · Bluetooth</div><div class="pj-n">YDC · Your Device Controller</div><div class="pj-d">Hardware manager that needs on-device confirmation for every remote action.</div></div>
+      <div class="pj"><div class="pj-t">Anonymous intake</div><div class="pj-n">Whistleblowing System</div><div class="pj-d">Client-side encrypted complaint portal using RSA-OAEP and AES-256, with fully separated infrastructure.</div></div>
+      <div class="pj"><div class="pj-t">Android</div><div class="pj-n">YAMC · Personal File Scraper</div><div class="pj-d">Local folder watcher that archives incoming media and purges files on your own retention timers.</div></div>
+      <div class="pj"><div class="pj-t">Self-hosted</div><div class="pj-n">YPDC · Your Private Drive Cloud</div><div class="pj-d">End-to-end encrypted distributed cloud storage using Argon2id master passwords and AES-256-GCM.</div></div>
+      <a class="pj" href="https://github.com/mnmyounus" target="_blank" rel="noopener"><div class="pj-t">Source code</div><div class="pj-n">More on GitHub</div><div class="pj-d">Every tool is open source. Read the code, check the claims.</div></a>
+    </div>
+    <div class="btn-row" style="margin-top:26px">
+      <a href="https://mnmyounus.github.io/Projects" target="_blank" rel="noopener" class="btn btn-fill" style="font-size:.84rem">Browse the Portfolio →</a>
+      <a href="https://github.com/mnmyounus" target="_blank" rel="noopener" class="btn btn-out" style="font-size:.84rem">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CREDENTIALS ══ -->
+<section id="credentials" style="background:var(--bg2)" aria-labelledby="crh">
+  <div class="page">
+    <div class="se">// 05 — Credentials</div>
+    <h2 class="sh" id="crh">Courses &amp; <span>Certificates</span></h2>
+    <div class="div"></div>
+    <p class="ss">Certificates of completion and participation from international organisations, universities and training platforms.</p>
+    <div class="rev">
+      <details class="cred" open><summary>Human rights, civic &amp; international policy</summary><ul><li><b>Amnesty International · Human Rights Academy</b><br/>Police and Human Rights; Use of Force and Firearms; "Dangerous" Questions: Why Academic Freedom Matters (with Scholars at Risk Network); Youth Member badge</li><li><b>UNICEF · Agora</b><br/>CHAT: A Toolkit to Improve Community Engagement in Emergencies; Child Safeguarding in Coordination of Education and Other Clusters/AoRs (Global Education Cluster, Save the Children &amp; UNICEF); Community Engagement for Behaviour and Social Change in CCCs in Humanitarian Action; Course Graduate badge</li><li><b>InforMEA · UN Environmental Law Portal</b><br/>Mercury and Gender (100%)</li><li><b>International Model United Nations</b><br/>Campus Ambassador Intern appointment</li><li><b>NASA</b><br/>International Observe the Moon Night 2024</li><li><b>Youth Employment UK</b><br/>Boosting Your Life and Work Experience</li></ul></details>
+      <details class="cred"><summary>Health, emergency preparedness &amp; science</summary><ul><li><b>World Health Organization · OpenWHO</b><br/>Advancing National Civil-Military Collaboration to Strengthen Health Emergency Preparedness; Pandemic Planning: Getting "PRET" for the Next Pandemic</li><li><b>UNESCO</b><br/>Introduction to Climate Risk Informed Decision Analysis (CRIDA); Cookbook for Open Hardware Sensors for Water Resources Management (Imperial College London &amp; ICTP)</li><li><b>Apollo Hospitals / Dosily / ISCCM</b><br/>Shock and Its Management in Children</li><li><b>Medvarsity / BAC</b><br/>Essentials of Surgical Nursing</li><li><b>First Aid for Free</b><br/>Basic Online First Aid Course; Online Asthma Awareness</li><li><b>Stanford Online · Coursera</b><br/>Introduction to Food and Health</li></ul></details>
+      <details class="cred"><summary>Cloud computing, cybersecurity &amp; AI</summary><ul><li><b>AWS Training &amp; Certification</b><br/>Cloud Security Essentials for Executives; AWS Tools to Develop, Run, and Modernize .NET Workloads; AWS Billing and Cost Management; Understanding Placement Groups (Simplilearn SkillUp)</li><li><b>Google Cloud Training · Coursera</b><br/>Introduction to Generative AI Learning Path (4 courses); Introduction to Generative AI; Introduction to Large Language Models; Introduction to Responsible AI; Responsible AI: Applying AI Principles with Google Cloud</li><li><b>Google Developer Program</b><br/>Member badge; Introduction to Programming in Kotlin badge; Google Maps Local Guides Bronze Program Expert badge</li><li><b>IBM Skills Network · Coursera</b><br/>Microsoft Windows Defender and Firewall for Beginners; Google Chrome Security and Extensions for Beginners; Coding for Beginners: An Easy Introduction</li><li><b>Microsoft · Coursera</b><br/>Microsoft Azure Relational Databases; Introduction to Virtual Machines in Microsoft Azure</li><li><b>NVIDIA · Coursera</b><br/>Introduction to Networking</li><li><b>Duke University · Coursera</b><br/>Introduction to GitHub Actions</li><li><b>Hasso Plattner Institute · openHPI</b><br/>Understanding Embeddings for Natural Language Processing</li><li><b>ITU Academy</b><br/>Global Satellite Regulation Essentials</li><li><b>HPE Aruba Networking · Coursera</b><br/>Cloud-Based Network Design &amp; Management Techniques</li><li><b>OpenLearn · The Open University</b><br/>Information Security (10 hours)</li></ul></details>
+      <details class="cred"><summary>Software, business &amp; creative development</summary><ul><li><b>Coursera Project Network</b><br/>Processing Data with Python; OpenAI for Beginners: Programmatic Prompting; Business Analysis &amp; Process Management; Build a Free Website with WordPress; Introduction to Microsoft Excel; How to Visualize Your Data Using Microsoft Powerpoint; Introduction to Basic Game Development Using Scratch; Building Students Math Skills with iKnowit; Copywriting with ChatGPT: Crafting High-Quality Blog Content</li><li><b>Accenture / FutureLearn</b><br/>Digital Skills: Digital Marketing (CPD certified)</li><li><b>HP LIFE Foundation</b><br/>Effective Presentations; Resume Writing and Job Interviewing</li><li><b>University of Edinburgh · Coursera</b><br/>How to Create an Online Course</li><li><b>UC Chile · Coursera</b><br/>English for Common Interactions in the Workplace: Basic Level</li><li><b>Oxford Home Study Centre</b><br/>Event Management (short course)</li><li><b>Studysection &amp; Ratatype</b><br/>Microsoft Word (Foundation); English typing certificates at 26 WPM and 83 WPM</li><li><b>Skillshare</b><br/>Artificial Intelligence for Beginners: How ChatGPT Works; Complete Your PhD on Time with Joy; Your Pathway to Teaching Art; The Handmade Handbook</li><li><b>Canva · Simply IELTS</b><br/>10 Designs Created badge; Level Up Your English</li></ul></details>
+      
+    </div>
+  </div>
+</section>
+
+<!-- ══ Y FRAMEWORK ══ -->
+<section id="ecosystem" aria-labelledby="eh">
+  <div class="page">
+    <div class="se">// 06 — The Y Framework</div>
+    <h2 class="sh" id="eh">Beyond <span>the Code</span></h2>
+    <div class="div"></div>
+    <p class="ss">Y connects practical web and security engineering with a long-term vision for how people might organise, learn and settle.</p>
+    <div class="vg rev">
+      <div class="vc"><div class="vi">🌐</div><div class="vt">YNation</div><div class="vd">A sovereign, borderless digital civilization built on ethical leadership, legislative structures and human rights frameworks.</div></div>
+      <div class="vc"><div class="vi">🪐</div><div class="vt">YPlace</div><div class="vd">An off-world settlement plan for interplanetary governance and cosmic diplomacy.</div></div>
+      <div class="vc"><div class="vi">🎓</div><div class="vt">Y Educational Network</div><div class="vd">YAcademy, YSchools and YUniversities, delivering future-proof digital education.</div></div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- ══ VALUES ══ -->
+<section id="values" style="background:var(--bg2)" aria-labelledby="vh">
+  <div class="page">
+    <div class="se">// 07 — Core Values</div>
     <h2 class="sh" id="vh">What I <span>Believe</span></h2>
     <div class="div"></div>
     <div class="vg rev">
@@ -510,15 +631,15 @@
       <div class="vc"><div class="vi">👤</div><div class="vt">Anonymity</div><div class="vd">The right to exist without being tracked, profiled or sold. Identity belongs to you alone.</div></div>
       <div class="vc"><div class="vi">🔍</div><div class="vt">Transparency</div><div class="vd">Power over others requires full clarity on how it is used. No hidden algorithms. Always.</div></div>
       <div class="vc"><div class="vi">⚖️</div><div class="vt">Human Rights</div><div class="vd">Every decision in technology, policy, or life must answer to human dignity first. Not profit.</div></div>
-      <div class="vc"><div class="vi">☪️</div><div class="vt">Faith &amp; Purpose</div><div class="vd">Guided by Islam — truth, compassion, divine purpose. Faith is the foundation of every action.</div></div>
+      <div class="vc"><div class="vi">🤝</div><div class="vt">Justice &amp; Service</div><div class="vd">Ethics and discipline first, with a commitment to justice and to serving humanity.</div></div>
     </div>
   </div>
 </section>
 
 <!-- ══ CONTACT ══ -->
-<section id="contact" style="background:var(--bg2)" aria-labelledby="ch">
+<section id="contact" aria-labelledby="ch">
   <div class="page">
-    <div class="se">// 05 — Contact</div>
+    <div class="se">// 08 — Contact</div>
     <h2 class="sh" id="ch">Get In <span>Touch</span></h2>
     <div class="div"></div>
     <div class="cg rev">
@@ -527,6 +648,7 @@
         <div class="ci"><div class="ci-ico">📧</div><div><div class="ci-l">Email</div><div class="ci-v"><a href="mailto:contact.mnmyounus.speak914@8shield.net">contact.mnmyounus.speak914<br/>@8shield.net</a></div></div></div>
         <div class="ci"><div class="ci-ico">📞</div><div><div class="ci-l">Phone</div><div class="ci-v">+1 (555) Y-OUNUS</div></div></div>
         <div class="ci"><div class="ci-ico">🌐</div><div><div class="ci-l">Social</div><div class="ci-v"><a href="https://mnmyounus.github.io/ysocial" target="_blank">mnmyounus.github.io/ysocial</a></div></div></div>
+        <div class="ci"><div class="ci-ico">💾</div><div><div class="ci-l">Code</div><div class="ci-v"><a href="https://github.com/mnmyounus" target="_blank" rel="noopener">github.com/mnmyounus</a><br/><a href="https://mnmyounus.github.io/Projects" target="_blank" rel="noopener">mnmyounus.github.io/Projects</a></div></div></div>
         <div style="margin-top:18px;display:flex;gap:8px;flex-wrap:wrap">
           <a href="https://mnmyounus.github.io/mnm.html" target="_blank" class="btn btn-fill" style="font-size:.78rem;padding:9px 16px">Talk to Me</a>
           <a href="https://ysecure.great-site.net" target="_blank" class="btn btn-out" style="font-size:.78rem;padding:9px 16px">Y Secure</a>
@@ -565,7 +687,7 @@
       <div class="fl">M.<span>YOUNUS</span></div>
       <div class="fls">
         <a href="#home">Home</a><a href="#about">About</a>
-        <a href="#skills">Skills</a><a href="#contact">Contact</a>
+        <a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#credentials">Credentials</a><a href="#contact">Contact</a>
         <a href="about.html">Full Vision</a>
         <a href="https://mnmyounus.github.io/ysocial" target="_blank">Social</a>
       </div>
@@ -590,7 +712,7 @@
 
 <script>
   /* BLAST RIPPLE on nav click */
-  document.querySelectorAll('.fnav a, .fnav button').forEach(el=>{
+  document.querySelectorAll('.fnav-links a').forEach(el=>{
     el.addEventListener('click',function(e){
       const r=document.createElement('span');
       r.classList.add('ripple');
@@ -609,6 +731,80 @@
   /* REVEAL */
   const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');io.unobserve(x.target)}})},{threshold:.08});
   document.querySelectorAll('.rev').forEach(el=>io.observe(el));
+
+  /* Y BALL: shake, blast, open, drag */
+  (function(){
+    const nav=document.getElementById('fnav'),ball=document.getElementById('yball');
+    const calm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const mq=matchMedia('(max-width:640px)'),de=document.documentElement,PAD=7,SZ=46;
+    let busy=false,down=false,drag=false,suppress=false,sx=0,sy=0,bx=0,by=0;
+    const clamp=(v,lo,hi)=>Math.max(lo,Math.min(hi,v));
+    const cx=x=>clamp(x,PAD+4,de.clientWidth-SZ-PAD-4),cy=y=>clamp(y,PAD+4,de.clientHeight-SZ-PAD-4);
+    function ballPos(){const r=nav.getBoundingClientRect();return{x:r.left+nav.clientLeft+ball.offsetLeft,y:r.top+nav.clientTop+ball.offsetTop}}
+    function place(x,y){
+      const s=nav.style;
+      s.left=(x-PAD)+'px';s.top=(y-PAD)+'px';s.right='auto';s.bottom='auto';s.transform='none';
+      s.flexDirection='';s.alignItems='';s.removeProperty('--avail');s.removeProperty('--availh');
+      nav.dataset.moved='1';
+    }
+    function save(){try{const p=ballPos();localStorage.setItem('yball',JSON.stringify({x:p.x/de.clientWidth,y:p.y/de.clientHeight}))}catch(e){}}
+    function restore(){try{const p=JSON.parse(localStorage.getItem('yball')||'null');if(p&&isFinite(p.x)&&isFinite(p.y))place(cx(p.x*de.clientWidth),cy(p.y*de.clientHeight))}catch(e){}}
+    function layoutOpen(){
+      if(nav.dataset.moved!=='1')return;
+      const p=ballPos(),W=de.clientWidth,H=de.clientHeight,s=nav.style,m=mq.matches;
+      const fx=p.x+SZ/2>W/2,fy=m&&p.y+SZ/2<H/2,up=m&&!fy;
+      s.left=fx?'auto':(p.x-PAD)+'px';s.right=fx?(W-p.x-SZ-PAD)+'px':'auto';
+      s.top=up?'auto':(p.y-PAD)+'px';s.bottom=up?(H-p.y-SZ-PAD)+'px':'auto';
+      if(m){s.flexDirection=fy?'column':'';s.alignItems=fx?'flex-end':'flex-start';s.setProperty('--availh',(fy?H-p.y-SZ-PAD-12:p.y-PAD-12)+'px')}
+      else{s.flexDirection=fx?'row-reverse':'';s.alignItems='';s.setProperty('--avail',((fx?p.x-PAD:W-p.x-SZ-PAD)-24)+'px')}
+    }
+    function setOpen(o){nav.classList.toggle('open',o);ball.setAttribute('aria-expanded',o);ball.setAttribute('aria-label',o?'Close menu':'Open menu')}
+    function blast(){
+      const r=ball.getBoundingClientRect(),b=document.createElement('div');
+      b.className='blast';b.style.left=(r.left+r.width/2)+'px';b.style.top=(r.top+r.height/2)+'px';
+      b.innerHTML='<span class="blast-ring"></span>';
+      const cols=['#6c8fff','#a78bfa','#34d399','#fbbf24','#f87171'];
+      for(let i=0;i<16;i++){
+        const a=i/16*Math.PI*2+Math.random()*.4,d=60+Math.random()*60,q=document.createElement('span');
+        q.className='blast-p';
+        q.style.cssText=`--dx:${Math.cos(a)*d}px;--dy:${Math.sin(a)*d}px;--c:${cols[i%5]}`;
+        b.appendChild(q);
+      }
+      document.body.appendChild(b);setTimeout(()=>b.remove(),800);
+    }
+    ball.addEventListener('pointerdown',e=>{
+      if(e.button||busy||nav.classList.contains('open'))return;
+      down=true;drag=false;sx=e.clientX;sy=e.clientY;
+      try{ball.setPointerCapture(e.pointerId)}catch(_){}
+    });
+    ball.addEventListener('pointermove',e=>{
+      if(!down)return;
+      const dx=e.clientX-sx,dy=e.clientY-sy;
+      if(!drag){
+        if(Math.hypot(dx,dy)<6)return;
+        drag=true;nav.classList.add('dragging','no-anim');
+        const p=ballPos();bx=p.x;by=p.y;place(bx,by);
+      }
+      place(cx(bx+dx),cy(by+dy));
+    });
+    function end(){
+      if(!down)return;down=false;nav.classList.remove('no-anim');
+      if(drag){nav.classList.remove('dragging');suppress=true;setTimeout(()=>suppress=false,60);save()}
+    }
+    ball.addEventListener('pointerup',end);ball.addEventListener('pointercancel',end);
+    ball.addEventListener('click',()=>{
+      if(suppress||busy)return;
+      if(nav.classList.contains('open')){setOpen(false);return}
+      if(calm){layoutOpen();setOpen(true);return}
+      busy=true;ball.classList.add('shake');
+      setTimeout(()=>{ball.classList.remove('shake');blast();layoutOpen();setOpen(true);busy=false},450);
+    });
+    document.addEventListener('click',e=>{if(!nav.contains(e.target)&&nav.classList.contains('open'))setOpen(false)});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nav.classList.contains('open')){setOpen(false);ball.focus()}});
+    nav.querySelectorAll('.fnav-links a').forEach(a=>a.addEventListener('click',()=>setTimeout(()=>setOpen(false),250)));
+    addEventListener('resize',()=>{if(nav.dataset.moved==='1'&&!nav.classList.contains('open')){const p=ballPos();place(cx(p.x),cy(p.y))}});
+    restore();
+  })();
 
   /* ACTIVE NAV */
   const secs=document.querySelectorAll('section[id]');
